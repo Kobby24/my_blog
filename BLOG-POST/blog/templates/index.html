@@ -1,0 +1,58 @@
+{% extends 'header.html' %}
+{% block content %}
+<body class="index-page">
+
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-item active">
+          <img src="../static/assets1/img/front2.jpg" alt="">
+          <div class="carousel-container">
+            <h2>Welcome to Kobby's Blog<br></h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="why-us section">
+      <div class="container">
+        <div class="row gy-4">
+        {% for i,j in data.items %}
+          <div class="{% if check %} col-12 {% else %} col-lg-4 {% endif %}" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-item">
+              <h4><a href="{% url 'article' p_id=i %}" class="stretched-link"></a>{{ j.title }}</h4>
+              <p>{{ j.subtitle }}</p>
+            </div></div>
+            {% if check%}
+            <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <a type="button" href="{% url 'delete' p_id=i %}">Delete</a>
+            </div>
+            <div class="col">
+              <a type="button" href="{% url 'update' p_id=i %}">Update</a>
+            </div>
+
+          </div>
+        </div>
+            {% endif %}
+
+          {% endfor %}
+
+
+          {% if check%}
+          <div class="d-grid gap-2 col-6 mx-auto">
+
+            <a href="{% url 'create' %}"  style="background:rgb(98,172,223)" class="btn btn-primary btn-sm" type="button">Create Post</a>
+          </div>
+          {% endif %}
+      </div>
+     </div>
+    </section>
+  </main>
+{% endblock %}
+</body>

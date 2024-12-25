@@ -1,0 +1,32 @@
+{% extends 'header.html' %}
+{% block content  %}
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item active">
+          <img src="../static/about2.jpg" alt="">
+          <div class="carousel-container">
+            <h2>About Me<br></h2>
+          </div>
+        </div><!-- End Carousel Item -->
+      </div>
+    </section><!-- /Hero Section -->
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us section">
+
+      <div class="container">
+
+              <h4>{{ request.path }}</h4>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+
+  </main>
+{% endblock %}
+
