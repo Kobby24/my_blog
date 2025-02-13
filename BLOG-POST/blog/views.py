@@ -6,6 +6,7 @@ from .utils import *
 
 def home(request):
     get_post(1)
+    get_all_post()
     post = None
     return render(request, 'index.html', {"data": post})
 
@@ -96,3 +97,5 @@ def update(request, p_id):
         })
 
     return render(request, 'createPost.html', {'form': form, 'mode': 'update','p_id':p_id})
+
+
