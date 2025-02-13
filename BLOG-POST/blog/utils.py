@@ -1,17 +1,11 @@
-import json
-import os
+from .models import  *
 
-DATA_FILE_PATH = os.path.join(os.path.dirname(__file__),'data','data.json')
-ADMINS_FILE_PATH = os.path.join(os.path.dirname(__file__),'data','admins.json')
+def get_post(post_id):
+    post = BlogPost.objects.get(blog_id=post_id)
+    return post
 
-def load_data():
-    with open(DATA_FILE_PATH,'r') as file:
-        return json.load(file)
-
-def save_data(data):
-    with open(DATA_FILE_PATH,'w') as file:
-        json.dump(data,file,indent=4)
-
-def load_admins():
-    with open(ADMINS_FILE_PATH,'r') as ad_file:
-        return json.load(ad_file)
+def get_all_post():
+    posts = BlogPost.objects.all()
+    blog_posts = []
+    for post in posts:
+        print(get_post(post.blog_id))

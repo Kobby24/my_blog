@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import Login, CreatePost
+from .utils import *
 
 
 def home(request):
+    get_post(1)
     post = None
     return render(request, 'index.html', {"data": post})
 
 
 def article(request, p_id):
-    post = None
-    context = {'id': p_id, 'post': post}
+    get_post(1)
+    context = {'id': p_id, 'post': None}
     return render(request, 'post.html', context)
 
 
