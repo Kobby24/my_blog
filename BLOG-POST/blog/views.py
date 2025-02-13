@@ -1,16 +1,15 @@
 from django.shortcuts import render
-from .models import Article, Admins
 from django.http import HttpResponse
 from .forms import Login, CreatePost
 
 
 def home(request):
-    post = Article.all()
+    post = None
     return render(request, 'index.html', {"data": post})
 
 
 def article(request, p_id):
-    post = Article.get(p_id)
+    post = None
     context = {'id': p_id, 'post': post}
     return render(request, 'post.html', context)
 
@@ -31,9 +30,9 @@ def admins(request):
             ad_password = form.cleaned_data['password']
 
             print(ad_name, ad_password)
-            is_admin = Admins.verify_ad(ad_name, ad_password)
+            is_admin = None
             if is_admin:
-                post = Article.all()
+                post = None
                 return render(request, 'index.html', {"data": post, "check": is_admin})
             else:
                 return HttpResponse(status=403)
@@ -53,7 +52,7 @@ def create(request):
                 'body': form.cleaned_data['body'],
                 'url': form.cleaned_data['url']
             }
-            Article.create(post)
+
             return home(request)
         else:
             return HttpResponse(status=404)
@@ -65,15 +64,15 @@ def create(request):
 
 
 def delete(request, p_id):
-    if Article.delete(p_id):
-        post = Article.all()
+    if None:
+        post = None
         return render(request, 'index.html', {"data": post})
     else:
         return HttpResponse(status=404)
 
 
 def update(request, p_id):
-    post = Article.get(p_id)
+    post = None
     if request.method == 'POST':
         form = CreatePost(request.POST)
         if form.is_valid():
@@ -83,7 +82,7 @@ def update(request, p_id):
                 'url': form.cleaned_data['url'],
                 'body': form.cleaned_data['body']
             }
-            Article.update(p_id,article_body)
+
             return home(request)
 
     else:
