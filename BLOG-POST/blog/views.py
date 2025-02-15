@@ -5,15 +5,17 @@ from .utils import *
 
 
 def home(request):
-    get_post(1)
-    get_all_post()
-    post = None
+
+    post = get_all_post()
+    for p in post:
+        print(p.blog_title)
     return render(request, 'index.html', {"data": post})
 
 
 def article(request, p_id):
-    get_post(1)
-    context = {'id': p_id, 'post': None}
+    print(p_id)
+    post = get_post(post_id=p_id)
+    context = {'id': p_id, 'post': post}
     return render(request, 'post.html', context)
 
 
