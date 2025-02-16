@@ -121,7 +121,7 @@ class BlogPost(models.Model):
     blog_title = models.CharField(null=False,blank=False,max_length=250)
     blog_subtitle = models.CharField(null=True,blank=True,max_length=450)
     blog_body = models.CharField(null=False,blank=False,max_length=750)
-    blog_media = models.CharField(null=False,blank=False,max_length=100)
+    blog_media = models.ImageField(upload_to='posts/',blank=True,null=True)
 
     class Meta:
         managed = True
