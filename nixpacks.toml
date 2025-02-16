@@ -1,15 +1,15 @@
 [phases.setup]
-nixPkgs = ["python39", "gcc", "postgresql", "python39Packages.pip"]
+nixPkgs = ["python39Full", "gcc", "postgresql", "python39Packages.pip"]
 
 [phases.install]
 cmds = [
-  "python -m ensurepip --default-pip",  # Ensure pip is installed
-  "pip install --upgrade pip",
+  "python -m pip install --upgrade pip",
   "pip install virtualenv",
   "virtualenv /opt/venv",
   ". /opt/venv/bin/activate",
   "pip install -r requirements.txt"
 ]
+
 
 [phases.start]
 cmd = "gunicorn blogPost.wsgi:application --bind 0.0.0.0:$PORT --log-file -"
