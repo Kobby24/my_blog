@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["python39", "gcc", "postgresql"]
+nixPkgs = ["python39", "gcc", "postgresql","python39Packages.virtualenv"]
 
 [phases.install]
 cmds = [
