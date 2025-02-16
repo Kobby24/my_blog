@@ -1,4 +1,4 @@
-% extends 'header.html' %}
+{% extends 'header.html' %}
 
 {% block content %}
   <main class="main">
@@ -23,7 +23,8 @@
     </section><!-- /Hero Section -->
     <!-- Why Us Section -->
      <div class="container">
-  <form class="needs-validation" novalidate="" action="{{ url 'contact' }}" method="post">
+  <form class="needs-validation" novalidate="" action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
     <div class="row g-3">
       <div class="col-6">
         <label for="firstName" class="form-label" >Name</label>
