@@ -5,7 +5,6 @@ from .utils import *
 
 
 def home(request):
-
     post = get_all_post()
     for p in post:
         print(p.blog_title)
@@ -24,6 +23,13 @@ def about(request):
 
 
 def contact(request):
+    if request.method == "POST":
+        send_message(name=request.POST.get('username')
+                     , phone=request.POST.get("phone"),
+                     user_mail=request.POST.get('email'),
+                     message=request.POST.get("message"))
+
+
     return render(request, 'contact.html')
 
 
@@ -61,43 +67,38 @@ def create(request):
             return home(request)
         else:
             return HttpResponse(status=404)
-
-
     else:
         form = CreatePost()
         return render(request, 'createPost.html', {'form': form, 'mode': 'create'})
 
-
-def delete(request, p_id):
-    if None:
-        post = None
-        return render(request, 'index.html', {"data": post})
-    else:
-        return HttpResponse(status=404)
-
-
-def update(request, p_id):
-    post = None
-    if request.method == 'POST':
-        form = CreatePost(request.POST)
-        if form.is_valid():
-            article_body = {
-                'title': form.cleaned_data['title'],
-                'subtitle': form.cleaned_data['subtitle'],
-                'url': form.cleaned_data['url'],
-                'body': form.cleaned_data['body']
-            }
-
-            return home(request)
-
-    else:
-        form = CreatePost(initial={
-            'title': post['title'],
-            'subtitle': post['subtitle'],
-            'url': post['url'],
-            'body': post['body']
-        })
-
-    return render(request, 'createPost.html', {'form': form, 'mode': 'update','p_id':p_id})
+# def delete(request, p_id):
+#     if None:
+#         post = None
+#         return render(request, 'index.html', {"data": post})
+#     else:
+#         return HttpResponse(status=404)
 
 
+# def update(request, p_id):
+#     post = None
+#     if request.method == 'POST':
+#         form = CreatePost(request.POST)
+#         if form.is_valid():
+#             article_body = {
+#                 'title': form.cleaned_data['title'],
+#                 'subtitle': form.cleaned_data['subtitle'],
+#                 'url': form.cleaned_data['url'],
+#                 'body': form.cleaned_data['body']
+#             }
+#
+#             return home(request)
+#
+#     else:
+#         form = CreatePost(initial={
+#             'title': post['title'],
+#             'subtitle': post['subtitle'],
+#             'url': post['url'],
+#             'body': post['body']
+#         })
+#
+#     return render(request, 'createPost.html', {'form': form, 'mode': 'update','p_id':p_id})
