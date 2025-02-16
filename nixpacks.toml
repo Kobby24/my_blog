@@ -1,17 +1,12 @@
-[build]
-plan = "python"
-packages = ["python39", "postgresql_16", "gcc"]
+[phases.setup]
+nixPkgs = ["python39", "gcc", "postgresql"]
 
-[install]
+[phases.install]
 cmds = [
   "python -m venv /opt/venv",
   ". /opt/venv/bin/activate",
-  "pip install --upgrade pip",
   "pip install -r requirements.txt"
 ]
 
-[start]
-cmd = "python manage.py runserver 0.0.0.0:8000"
-
-[variables]
-dotenv = ".env"
+[phases.start]
+cmd = "gunicorn blogPost.wsgi:application --bind 0.0.0.0:$PORT --log-file -"
