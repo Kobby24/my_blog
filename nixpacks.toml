@@ -1,21 +1,17 @@
 [build]
-# Use Python 3.9 and PostgreSQL
 plan = "python"
 packages = ["python39", "postgresql_16", "gcc"]
 
-[variables]
-# Ensure your .env file is loaded
-dotenv = ".env"
-
-[start]
-# The correct command to start your Django app
-cmd = "python manage.py runserver 0.0.0.0:8000"
-
 [install]
-# Use a virtual environment and install dependencies
 cmds = [
   "python -m venv /opt/venv",
   ". /opt/venv/bin/activate",
   "pip install --upgrade pip",
   "pip install -r requirements.txt"
 ]
+
+[start]
+cmd = "python manage.py runserver 0.0.0.0:8000"
+
+[variables]
+dotenv = ".env"
