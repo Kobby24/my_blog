@@ -1,2 +1,2 @@
 web: gunicorn blogPost.wsgi --log-file
-web: python managerrunun.py migrate && gunicorn blogPost.wsgi
+web: python manage.py migrate && gunicorn blogPost.wsgi
