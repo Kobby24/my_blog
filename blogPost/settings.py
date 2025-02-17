@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 import dj_database_url
 from dotenv import load_dotenv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # load our environment variables
 load_dotenv()
@@ -44,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'whitenoise.runserver_nostatic',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +125,23 @@ STATIC_URL = 'static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+cloudinary.config(
+  cloud_name = os.getenv('CLOUD_NAME'),
+  api_key = os.getenv('API_KEY'),
+  api_secret = os.getenv('API_SECRET')
+)
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+    'API_KEY': os.getenv('API_KEY'),
+    'API_SECRET': os.getenv('API_SECRET'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

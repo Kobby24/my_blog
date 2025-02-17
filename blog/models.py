@@ -6,6 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class AuthGroup(models.Model):
@@ -121,7 +122,7 @@ class BlogPost(models.Model):
     blog_title = models.CharField(null=False,blank=False,max_length=250)
     blog_subtitle = models.CharField(null=True,blank=True,max_length=450)
     blog_body = models.CharField(null=False,blank=False,max_length=750)
-    blog_media = models.ImageField(upload_to='posts/',blank=True,null=True)
+    blog_media = CloudinaryField('image')
 
     class Meta:
         managed = True
