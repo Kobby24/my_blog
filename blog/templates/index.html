@@ -22,11 +22,15 @@
       <div class="container">
         <div class="row gy-4">
         {% for i in data%}
-          <div class="{% if check %} col-12 {% else %} col-lg-4 {% endif %}" data-aos="fade-up" data-aos-delay="100" style="background: url({{ i.blog_media.url }})">
-            <div class="card-item">
-              <h4><a href="{% url 'article' p_id=i.blog_id %}" class="stretched-link"></a>{{ i.blog_title }}</h4>
-              <p>{{ i.blog_subtitle }}</p>
-            </div></div>
+<div class="{% if check %} col-12 {% else %} col-lg-4 {% endif %}"
+     data-aos="fade-up"
+     data-aos-delay="100"
+     style="background: url('{{ i.blog_media.url }}'); background-size: contain; background-repeat: no-repeat; background-position: center; min-height: 300px;">
+  <div class="card-item">
+    <h4><a href="{% url 'article' p_id=i.blog_id %}" class="stretched-link"></a>{{ i.blog_title }}</h4>
+    <p>{{ i.blog_subtitle }}</p>
+  </div>
+</div>
             {% if check%}
             <div class="container text-center">
         <div class="row">
