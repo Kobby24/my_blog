@@ -6,9 +6,10 @@ from .utils import *
 
 def home(request):
     post = get_all_post()
+    event = get_event()
     for p in post:
         print(p.blog_title)
-    return render(request, 'index.html', {"data": post})
+    return render(request, 'index.html', {"data": post,'event':event})
 
 
 def article(request, p_id):

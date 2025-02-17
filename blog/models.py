@@ -121,9 +121,23 @@ class BlogPost(models.Model):
     blog_id = models.AutoField(primary_key=True,)
     blog_title = models.CharField(null=False,blank=False,max_length=250)
     blog_subtitle = models.CharField(null=True,blank=True,max_length=450)
-    blog_body = models.CharField(null=False,blank=False,max_length=750)
+    blog_body = models.CharField(null=False,blank=False,max_length=1500)
     blog_media = CloudinaryField('image')
 
     class Meta:
         managed = True
         db_table = 'blog_post'
+
+class Events(models.Model):
+    event_id = models.AutoField(primary_key=True)
+    event_title = models.CharField(null=False,blank=False,max_length=250)
+    event_subtitle = models.CharField(null=True,blank=True,max_length=300)
+    event_body = models.CharField(null=True,blank=True,max_length=1500)
+    event_madia1 = CloudinaryField('image')
+    event_madia2 = CloudinaryField('image')
+    event_madia3 = CloudinaryField('image')
+
+    class Mate:
+        managed = True
+        db_table = 'events'
+
