@@ -7,13 +7,13 @@ from .utils import *
 def home(request):
     post = get_all_post()
     event = get_event()
-    for p in post:
-        print(p.blog_title)
+    print(event)
+
     return render(request, 'index.html', {"data": post,'event':event})
 
 
 def article(request, p_id):
-    print(p_id)
+
     post = get_post(post_id=p_id)
     context = {'id': p_id, 'post': post}
     return render(request, 'post.html', context)
@@ -30,7 +30,7 @@ def admins(request):
             ad_name = form.cleaned_data['admin_name']
             ad_password = form.cleaned_data['password']
 
-            print(ad_name, ad_password)
+
             is_admin = None
             if is_admin:
                 post = None
@@ -45,7 +45,7 @@ def admins(request):
 def create(request):
     if request.method == "POST":
         form = CreatePost(request.POST)
-        print(form.is_valid())
+
         if form.is_valid():
             post = {
                 'title': form.cleaned_data['title'],
