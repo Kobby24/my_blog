@@ -20,16 +20,14 @@ def get_events():
     return event_posts
 
 def get_event(e_id=0):
-    if e_id==0:
-        events = Events.objects.all()
-        if len(events) >0:
-            get_event(len(events))
-        else:
-            return None
+    events = Events.objects.all()
+    if len(events) >0:
+        event = Events.objects.get(event_id=len(events))
+        return event
 
     else:
-        event = Events.objects.get(event_id=e_id)
-        return event
+        return None
+
 
 
 
