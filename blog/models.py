@@ -122,7 +122,9 @@ class BlogPost(models.Model):
     blog_title = models.CharField(null=False,blank=False,max_length=250)
     blog_subtitle = models.CharField(null=True,blank=True,max_length=450)
     blog_body = models.CharField(null=False,blank=False,max_length=1500)
-    blog_media = CloudinaryField('image')
+    blog_media = CloudinaryField('image',blank=True,null=True)
+    video_id = models.CharField(blank=True,null=True,max_length=250)
+
 
     class Meta:
         managed = True
