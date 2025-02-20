@@ -1730,3 +1730,10 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+.media-container {
+    width: 100%;  /* Makes sure both image & video are full width */
+    height: 350px; /* Uniform height for both */
+    object-fit: cover; /* Prevents stretching */
+    display: block; /* Removes unwanted gaps */
+}
