@@ -137,7 +137,12 @@ class Events(models.Model):
     event_venue = models.CharField(null=True,blank=True,max_length=250)
     event_time = models.CharField(null=True,blank=True,max_length=250)
     event_body = models.CharField(null=True,blank=True,max_length=1500)
-    event_madia1 = CloudinaryField('image')
+    event_date = models.CharField(null=True,blank=True,max_length=250)
+    event_image = CloudinaryField('image',null=True,blank=True)
+    event_video = CloudinaryField('video',null=True,blank=True)
+
+
+
 
 
     class Mate:
