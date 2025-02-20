@@ -24,7 +24,7 @@ def get_events():
 def get_event(e_id=0):
     events = Events.objects.all()
     if len(events) >0:
-        event = Events.objects.get(event_id=len(events))
+        event = Events.objects.get(event_id=e_id)
         return event
 
     else:
