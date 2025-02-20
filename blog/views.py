@@ -7,14 +7,13 @@ from .utils import *
 def home(request):
     post = get_all_post()
     event = get_event()
-    print(event)
-
     return render(request, 'index.html', {"data": post,'event':event})
 
 
 def article(request, p_id):
 
     post = get_post(post_id=p_id)
+
     context = {'id': p_id, 'post': post}
     return render(request, 'post.html', context)
 
