@@ -138,8 +138,8 @@ class Events(models.Model):
     event_time = models.CharField(null=True,blank=True,max_length=250)
     event_body = models.CharField(null=True,blank=True,max_length=1500)
     event_date = models.CharField(null=True,blank=True,max_length=250)
-    event_image = CloudinaryField('image',null=True,blank=True)
-    event_video = CloudinaryField('video',null=True,blank=True)
+    event_image = CloudinaryField('image',blank=True,null=True)
+    event_video = CloudinaryField(resource_type='video',blank=True,null=True)
 
 
 
