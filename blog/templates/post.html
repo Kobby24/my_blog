@@ -9,8 +9,8 @@
             <div class="container">
               <article class="article">
                 <div class="post-img">
-                  {% if post.video_id %}
-                  {{ post.video_id|safe }}
+                  {% if post.video_url %}
+                  {{ post.video_url|safe }}
                   {% else %}
                   <img src= "{{ post.blog_media.url }}"  alt="" class="img-fluid rounded shadow-lg img-hover-effect mt-4" style="width: 90%; cursor: pointer;">
                   {% endif %}
