@@ -10,7 +10,15 @@
               <article class="article">
                 <div class="post-img">
                   {% if post.video_url %}
-                    {{ post.video_url|safe }}
+                    {{ video_url }}
+                    <iframe
+                    src="https://www.youtube.com/embed/{{ video_url }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="img-fluid rounded shadow-lg img-hover-effect mt-4"
+                    style="width: 90%; height: auto; aspect-ratio: 16/9; cursor: pointer;">
+                </iframe>
 
                   {% else %}
                   <img src= "{{ post.blog_media.url }}"  alt="" class="img-fluid rounded shadow-lg img-hover-effect mt-4" style="width: 90%; cursor: pointer;">
