@@ -2,6 +2,8 @@ from .models import *
 from django.core.mail import send_mail
 def get_post(post_id):
     post = BlogPost.objects.get(blog_id=post_id)
+    post.video_url= youtube(post.video_url)
+
     return post
 
 def get_all_post():
@@ -34,9 +36,13 @@ def get_event(e_id=0):
 import re
 
 def youtube(url):
+    url=str(url)
     """Extracts the src URL using regex."""
     match = re.search(r'src="([^"]+)"', url)
     m = match.group(1) if match else None
-    return m.split('/')[-1]
+    if m:
+        return m.split('/')[-1]
+    else:
+        return m
 
 
