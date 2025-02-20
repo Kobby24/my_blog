@@ -4,26 +4,35 @@
 
 
   <main class="main">
+    <div class="container">
 
     <!-- Hero Section -->
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="1000">
-      <img src="{% if event %}{{ event.event_madia1.url }}{% else %} ../static/assets1/img/front2.jpg {% endif %}"
-           class="d-block w-100" alt="Slide 1" style="object-fit: background-size: cover; contain;  height: 350px;">
-      <h3>{% if event %}{{ event.event_title }}{% else %}  {% endif %}</h3>
+  <div class="carousel-inner" >
+    {% for e in event %}
+<div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="5000">
+    {% if e.event_video %}
+        <video class="media-container img-fluid rounded shadow-lg img-hover-effect mt-4" autoplay muted loop playsinline>
+            <source src="{{ e.event_video.url }}" type="video/mp4">
+        </video>
+    {% else %}
+        <img src="{% if e.event_image %}{{ e.event_image.url }}{% else %}../static/assets1/img/front2.jpg{% endif %}"
+             class="media-container img-fluid rounded shadow-lg img-hover-effect mt-4" alt="Slide">
+    {% endif %}
 
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{% if event %}{{ event.event_madia2.url }}{% else %} ../static/assets1/img/front2.jpg {% endif %}"
-           class="d-block w-100" alt="Slide 2" style="object-fit: background-size: cover; contain; height: 350px;">
-      <h3>{% if event %}{{ event.event_title }}{% else %}  {% endif %}</h3>
-    </div>
-    <div class="carousel-item">
-      <img src="{% if event %}{{ event.event_madia3.url }}{% else %} ../static/assets1/img/front2.jpg {% endif %}"
-           class="d-block w-100" alt="Slide 3" style="object-fit: background-size: cover; contain; height: 350px;">
-      <h3>{% if event %}{{ event.event_title }}{% else %}  {% endif %}</h3>
-    </div>
+    <h3>{% if event %}{{ e.event_title }}{% else %}  {% endif %}</h3>
+</div>
+    {% endfor %}
+<!--    <div class="carousel-item" data-bs-interval="2000">-->
+<!--      <img src="{% if event %}{{ event.event_madia2.url }}{% else %} ../static/assets1/img/front2.jpg {% endif %}"-->
+<!--           class="d-block w-100" alt="Slide 2" style="object-fit: background-size: cover; contain; height: 350px;">-->
+<!--      <h3>{% if event %}{{ event.event_title }}{% else %}  {% endif %}</h3>-->
+<!--    </div>-->
+<!--    <div class="carousel-item">-->
+<!--      <img src="{% if event %}{{ event.event_madia3.url }}{% else %} ../static/assets1/img/front2.jpg {% endif %}"-->
+<!--           class="d-block w-100" alt="Slide 3" style="object-fit: background-size: cover; contain; height: 350px;">-->
+<!--      <h3>{% if event %}{{ event.event_title }}{% else %}  {% endif %}</h3>-->
+<!--    </div>-->
   </div>
 
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -36,7 +45,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
+</div>
 
 
 
