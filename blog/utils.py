@@ -31,13 +31,12 @@ def get_event(e_id=0):
 
 
 
-# def send_message(name,phone,user_mail,message):
-#     send_mail(
-#         subject=f"{name}'s Message From Blog. contact:{phone}",
-#         message=message,
-#         from_email=user_mail,
-#         recipient_list=['kobbygilbert@233gmail.com'],fail_silently=False
-#
-#     )
+import re
+
+def youtube(url):
+    """Extracts the src URL using regex."""
+    match = re.search(r'src="([^"]+)"', url)
+    m = match.group(1) if match else None
+    return m.split('/')[-1]
 
 
