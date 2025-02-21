@@ -12,12 +12,12 @@
     {% for e in event %}
 <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="5000">
     {% if e.event_video %}
-        <video class="media-container img-fluid rounded shadow-lg img-hover-effect mt-4" autoplay muted loop playsinline>
+        <video class="media-container img-fluid w-100 rounded shadow-lg img-hover-effect mt-4" autoplay muted loop playsinline style="max-height: 400px; object-fit: contain;" >
             <source src="{{ e.event_video.url }}" type="video/mp4">
         </video>
     {% else %}
         <img src="{% if e.event_image %}{{ e.event_image.url }}{% else %}../static/assets1/img/front2.jpg{% endif %}"
-             class="media-container img-fluid rounded shadow-lg img-hover-effect mt-4" alt="Slide">
+             class="media-container img-fluid w-100 rounded shadow-lg img-hover-effect mt-4" alt="Slide" style="object-fit: contain; max-height: 400px;">
     {% endif %}
 
     <h3>{% if event %}{{ e.event_title }}{% else %}  {% endif %}</h3>
