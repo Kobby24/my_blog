@@ -29,7 +29,7 @@
 
 </head>
 
-<body background="url('../static/assets1/img/WhatsApp Image 2025-02-20 at 17.10.23_465f315d.jpg');">
+<body style="background-image: url('../static/assets1/img/background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
 <header id="header" class="header sticky-top">
 
     <div class="topbar d-flex align-items-center">
@@ -78,7 +78,7 @@
         <div class="row gy-6 d-flex justify-content-between">
             <!-- Left Column -->
             <div class="col-lg-4 col-md-6 footer-about">
-                <a href="github.com/Kobby24" class="logo d-flex align-items-center">
+                <a href="{% url 'about' %}" class="logo d-flex align-items-center">
                     <span class="sitename">GCOP</span>
                 </a>
                 <div class="social-links d-flex mt-4">
@@ -91,8 +91,9 @@
 
             <!-- Right Column (Aligned Right) -->
             <div class="col-lg-4 col-md-6 footer-about text-lg-end text-md-end text-center">
+                 <iframe src="https://stream.zeno.fm/4vkingghydivv"  frameborder="0" scrolling="no" height="70px"></iframe>
                 <div class="social-links d-flex mt-4 justify-content-lg-end justify-content-md-end justify-content-center">
-                    <iframe src="https://zeno.fm/player/gcop-radio"  frameborder="0" scrolling="no"></iframe>
+
             </div>
               </div>
         </div>
