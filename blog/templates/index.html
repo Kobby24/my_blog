@@ -3,7 +3,7 @@
 <body class="index-page" xmlns="http://www.w3.org/1999/html">
 
 
-  <main class="main">
+  <main class="main" style="background: rgba(0, 0, 0, 0.9); padding: 20px; border-radius: 10px; color: white;">
     <div class="container">
 
     <!-- Hero Section -->
@@ -19,7 +19,7 @@
     background-image: url('../static/assets1/img/background.jpg'); /* Default fallback image */
     background-size: cover;
     background-position: center;
-    filter: blur(20px);
+    filter: blur(2px);
     z-index: -1;">
   </div>
 
@@ -37,7 +37,6 @@
                  class="media-container img-fluid w-100 rounded shadow-lg img-hover-effect mt-4"
                  alt="Slide" style="object-fit: contain; max-height: 400px;">
         {% endif %}
-        <h3>{% if event %}{{ e.event_title }}{% else %}  {% endif %}</h3>
     </div>
     {% endfor %}
   </div>
@@ -59,7 +58,7 @@
 
 
 
-    <section id="why-us" class="why-us section">
+    <section id="why-us" class="why-us section" >
       <div class="container">
         <div class="row gy-4">
         {% for i in data%}
