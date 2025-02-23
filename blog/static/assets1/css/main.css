@@ -62,7 +62,10 @@
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  background: url('../static/assets1/img/background.jpg') no-repeat center center fixed;
+  background-size: cover;
   font-family: var(--default-font);
 }
 
@@ -83,7 +86,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--heading-color);
+  color: color:white;
   font-family: var(--heading-font);
 }
 
