@@ -29,35 +29,45 @@
 
 </head>
 
-<body>
-<header id="header" class="header sticky-top">
+<body style="margin: 0; padding: 0; background: url( '../static/assets1/img/background.jpg' ) no-repeat center center fixed; background-size: cover; opacity: 0.8; ">
+<header id="header" class="header " style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; color: white;">
 
-    <div class="topbar d-flex align-items-center">
-      <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">kobbygilbert233@gmail.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+233 592 857 226</span></i>
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
-          <a href="x.com/KobbyGilbert1" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="https://www.instagram.com/kobbygil24/" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/gilbert-effah-a2081a300/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-    </div><!-- End Top Bar -->
+<!--    <div class="topbar d-flex align-items-center">-->
+<!--&lt;!&ndash;      <div class="container d-flex justify-content-center justify-content-md-between">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="contact-info d-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;          <i class="bi bi-envelope d-flex align-items-center text-white" ><a href="mailto:contact@example.com" style="color:white;">kobbygilbert233@gmail.com</a></i>&ndash;&gt;-->
+<!--&lt;!&ndash;          <i class="bi bi-phone d-flex align-items-center ms-4 text-white"><span style="color:white;">+233 592 857 226</span></i>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="social-links d-none d-md-flex align-items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;    <a href="https://www.youtube.com/@godschurchofpeaceinternati4179" class="text-white fs-4 me-3">&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="bi bi-youtube"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;    <a href="https://www.instagram.com/peace.ghana.54/" class="text-white fs-4 me-3">&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="bi bi-instagram"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;    <a href="https://www.facebook.com/GCOPMEDIA" class="text-white fs-4 me-3">&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="bi bi-facebook"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;    <a href="https://www.tiktok.com/@peaceghana" class="text-white fs-4">&ndash;&gt;-->
+<!--&lt;!&ndash;        <i class="bi bi-tiktok"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;    </a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>&lt;!&ndash; End Top Bar &ndash;&gt;-->
 
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
           <!-- Uncomment the line below if you also wish to use an image logo -->
 <!--           <img src="../static/assets1/img/logo.png" alt="">-->
-          <h1 class="sitename">GCOP's Blog</h1>
+          <h1 class="sitename" style="">GCOP's Blog</h1>
 
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="{% url 'home' %}" class="{% if request.path == '/' %} active {% endif %}">Home</a></li>
-            <li><a href="{% url 'about' %}"  class="{% if request.path == '/about/' %} active {% endif %}">About</a></li>
+            <li><a href="{% url 'home' %}" class="{% if request.path == '/' %} active {% endif %} " style="color:white;">Home</a></li>
+            <li><a href="{% url 'about' %}"  class="{% if request.path == '/about/' %} active {% endif %}" style="color:white;">About</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -70,23 +80,32 @@
 <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Preloader -->
-  <div id="preloader"></div>
+  <div id="preloader" style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; color: white;"></div>
 {% block content %}
 {%  endblock %}
-<footer id="footer" class="footer light-background">
+<footer id="footer" class="footer light-background" style="background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; color: white;">
     <div class="container footer-top">
         <div class="row gy-6 d-flex justify-content-between">
             <!-- Left Column -->
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="{% url 'about' %}" class="logo d-flex align-items-center">
-                    <span class="sitename">GCOP</span>
+                    <span class="sitename" style="color:white;">GCOP INT</span>
                 </a>
                 <div class="social-links d-flex mt-4">
-                    <a href="https://www.youtube.com/@godschurchofpeaceinternati4179"><i class="bi bi-youtube"></i></a>
-                    <a href="https://www.instagram.com/peace.ghana.54/"><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.facebook.com/GCOPMEDIA"><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.tiktok.com/@peaceghana"><i class="bi bi-tiktok"></i></a>
-                </div>
+    <a href="https://www.youtube.com/@godschurchofpeaceinternati4179" class="text-white fs-4 me-3">
+        <i class="bi bi-youtube"></i>
+    </a>
+    <a href="https://www.instagram.com/peace.ghana.54/" class="text-white fs-4 me-3">
+        <i class="bi bi-instagram"></i>
+    </a>
+    <a href="https://www.facebook.com/GCOPMEDIA" class="text-white fs-4 me-3">
+        <i class="bi bi-facebook"></i>
+    </a>
+    <a href="https://www.tiktok.com/@peaceghana" class="text-white fs-4">
+        <i class="bi bi-tiktok"></i>
+    </a>
+</div>
+
             </div>
 
             <!-- Right Column (Aligned Right) -->
