@@ -150,7 +150,7 @@ class Events(models.Model):
         db_table = 'events'
 
 class Leaders(models.Model):
-    leader_id = models.AutoField(primaryf_key=True)
+    leader_id = models.AutoField(primary_key=True)
     leader_name = models.CharField(null=False,blank=False,max_length=400)
     leader_title = models.CharField(null=False,blank=False,max_length=400)
     leader_image = CloudinaryField('image',blank=False,null=False)
