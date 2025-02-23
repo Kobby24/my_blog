@@ -83,54 +83,57 @@
   <div id="preloader" style="background: rgba(0, 0, 0, 0.8); padding: 20px;  color: white;"></div>
 {% block content %}
 {%  endblock %}
-<footer id="footer" class="footer light-background" style="background: rgba(0, 0, 0, 0.8); padding: 20px;  color: white;">
+<footer id="footer" class="footer light-background" style="background: rgba(0, 0, 0, 0.8); padding: 20px; color: white;">
     <div class="container footer-top">
         <div class="row gy-6 d-flex justify-content-between">
-            <!-- Left Column -->
+            <!-- Left Column (Social Media Links) -->
             <div class="col-lg-4 col-md-6 footer-about">
                 <a href="{% url 'about' %}" class="logo d-flex align-items-center">
                     <span class="sitename" style="color:white;">GCOP INT</span>
                 </a>
-                <div class="social-links d-flex mt-4">
-    <a href="https://www.youtube.com/@godschurchofpeaceinternati4179" class="text-white fs-4 me-3">
-        <i class="bi bi-youtube"></i>
-    </a>
-    <a href="https://www.instagram.com/peace.ghana.54/" class="text-white fs-4 me-3">
-        <i class="bi bi-instagram"></i>
-    </a>
-    <a href="https://www.facebook.com/GCOPMEDIA" class="text-white fs-4 me-3">
-        <i class="bi bi-facebook"></i>
-    </a>
-    <a href="https://www.tiktok.com/@peaceghana" class="text-white fs-4">
-        <i class="bi bi-tiktok"></i>
-    </a>
-</div>
-
+                <div class="social-links d-flex flex-sm-column flex-md-row mt-4 mb-4">
+                    <a href="https://www.youtube.com/@godschurchofpeaceinternati4179" class="text-white fs-4 me-md-3 mb-2 mb-sm-3">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/peace.ghana.54/" class="text-white fs-4 me-md-3 mb-2 mb-sm-3">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/GCOPMEDIA" class="text-white fs-4 me-md-3 mb-2 mb-sm-3">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@peaceghana" class="text-white fs-4">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                </div>
             </div>
 
-            <!-- Right Column (Aligned Right) -->
+            <!-- Right Column (Radio Section) -->
             <div class="col-lg-4 col-md-6 footer-about text-lg-end text-md-end text-center">
+                <div class="mt-4 mt-md-0">
+                    <span class="sitename logo d-flex align-items-center justify-content-center mb-3 text-white fs-4">
+                        GCOP RADIO
+                        <a href="https://apps.apple.com/gh/app/gcop-radio/id6472612571" class="text-white">
+                            <i class="bi bi-apple ms-3"></i>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1zt06o1hk4vZ1ZRanNni4spCCXNFTFVd0/view?usp=drivesdk" class="text-white">
+                            <i class="bi bi-google-play ms-3"></i>
+                        </a>
+                    </span>
 
-<span class="sitename logo d-flex align-items-center justify-content-center mb-3 text-white fs-4">
-    GCOP RADIO
-    <a href="https://apps.apple.com/gh/app/gcop-radio/id6472612571 " class="text-white"><i class="bi bi-apple ms-3"></i></a>
-    <a href="https://drive.google.com/file/d/1zt06o1hk4vZ1ZRanNni4spCCXNFTFVd0/view?usp=drivesdk" class="text-white"><i class="bi bi-google-play ms-3"></i></a>
-</span>
-
-    <div class="d-flex justify-content-center">
-        <iframe src="https://stream.zeno.fm/4vkingghydivv" frameborder="0" scrolling="no" height="70px"></iframe>
-    </div>
-
-    <div class="social-links d-flex mt-4 justify-content-lg-end justify-content-md-end justify-content-center"></div>
-</div>
-
+                    <div class="d-flex justify-content-center">
+                        <iframe src="https://stream.zeno.fm/4vkingghydivv" frameborder="0" scrolling="no" height="70px"></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Copyright Section -->
     <div class="container copyright text-center mt-4">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">Kobby24</strong> <span>All Rights Reserved</span></p>
     </div>
 </footer>
+
 
   <!-- Vendor JS Files -->
   <script src="../static/assets1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
