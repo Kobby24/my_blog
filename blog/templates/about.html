@@ -1,73 +1,53 @@
 {% extends 'header.html' %}
 {% block content  %}
-  <main class="main"  style="background: rgba(0, 0, 0, 0.9); padding: 20px; color: white;">
+  <main class="main"  style="background: rgba(0, 0, 0, 0.7); padding: 20px; color: white;">
 
     <!-- Hero Section -->
 
     <section id="why-us" class="why-us section">
       <div class="text-center">
         <h1 class="fw-bold">About Us</h1>
-        <p class="lead text-muted">Discover our mission, vision, and what makes GCOP RADIO unique.</p>
+
     </div>
 
     <div class="row mt-4">
         <div class="col-lg-6">
-            <h2 class="fw-bold">Founder</h2>
+            {% for leader in first_leader %}
+            <h2 class="fw-bold">{{ leader.leader_title }}</h2>
+
             <p>
-                Welcome to <strong>GCOP </strong>, your go-to platform for uplifting content, inspirational messages,
-                and engaging discussions. We are dedicated to delivering quality broadcasts that inform, inspire, and connect our community.
+                <strong>{{ leader.leader_name }} </strong>
             </p>
         </div>
         <div class="col-lg-6">
-            <img src="../static/assets1/img/front2.jpg" alt="About Us" class="img-fluid rounded shadow">
+            <img src="{{ leader.leader_image.url }}" alt="About Us" class="img-fluid rounded shadow">
         </div>
+        {% endfor %}
+
     </div>
 
     <div class="mt-5">
-        <h2 class="fw-bold">Our Mission</h2>
-        <p>
-            At <strong>GCOP</strong>, our mission is to provide a <em>faith-driven, community-focused, and informative</em> listening experience.
-            We aim to spread messages of hope, peace, and positivity while keeping our audience engaged with impactful content.
-        </p>
+        <h2 class="fw-bold">Leaders</h2>
+        <p> At <strong>GCOP</strong>, our mission is to provide a <em>faith-centered, community-driven, and spiritually enriching</em> experience. We are dedicated to sharing the message of Christ, fostering hope and peace, and uplifting our congregation through meaningful worship and inspiring teachings. </p>
     </div>
 
       <div class="container">
 
               <div class="row mb-2">
+                  {% for leader in remaining_leaders %}
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
-          <h3 class="mb-0">Featured post</h3>
-          <div class="mb-1 text-body-secondary">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-            Continue reading
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-          </a>
+          <h3 class="mb-0">{{ leader.leader_title }}</h3>
+            <h5><strong class="d-inline-block mb-3 text-primary-emphasis">{{ leader.leader_name }}</strong></h5>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+<img src="{{ leader.leader_image.url }}" alt="Placeholder: Thumbnail" width="200" height="250">
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success-emphasis">Design</strong>
-          <h3 class="mb-0">Post title</h3>
-          <div class="mb-1 text-body-secondary">Nov 11</div>
-          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-            Continue reading
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-          </a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-        </div>
-      </div>
-    </div>
+                  {% endfor %}
+
   </div>
 
       </div>
