@@ -45,4 +45,13 @@ def youtube(url):
     else:
         return m
 
+def get_leaders():
+    leaders = Leaders.objects.exclude(leader_title='Founder')
+    return leaders
+
+def get_founder():
+    leaders = Leaders.objects.filter(leader_title='Founder')
+    return leaders
+
+
 
