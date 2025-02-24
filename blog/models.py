@@ -141,10 +141,6 @@ class Events(models.Model):
     event_image = CloudinaryField('image',blank=True,null=True)
     event_video = CloudinaryField(resource_type='video',blank=True,null=True)
 
-
-
-
-
     class Mate:
         managed = True
         db_table = 'events'
@@ -155,3 +151,6 @@ class Leaders(models.Model):
     leader_title = models.CharField(null=False,blank=False,max_length=400)
     leader_image = CloudinaryField('image',blank=False,null=False)
 
+    class Meta:
+        managed = True
+        db_table = 'leaders'
