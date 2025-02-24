@@ -19,7 +19,14 @@ def article(request, p_id):
 
 
 def about(request):
-    return render(request, 'about.html')
+    founder = get_founder()
+    leaders = get_leaders()
+    context = {
+        "first_leader": founder if founder else None,  # Handle empty QuerySet
+        "remaining_leaders": leaders if leaders else None,
+    }
+    print(context)
+    return render(request, 'about.html',context)
 
 
 def admins(request):
