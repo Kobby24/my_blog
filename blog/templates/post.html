@@ -1,11 +1,14 @@
 {% extends 'header.html' %}
 
 {% block content %}
-  <main class="main" style="background: rgba(0, 0, 0, 0.7); padding: 20px;  color: white;">
-    <div class="container">
+<main class="main" style="background: rgba(0, 0, 0, 0.7); padding: 20px;  color: white;" xmlns="">
+    <div class="container" style="margin: 0; padding: 0;
+           background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                       url('../static/assets1/img/background.png') no-repeat center center fixed;
+           background-size: contain;">
         <div class="col">
           <!-- Blog Details Section -->
-          <section id="blog-details" class="blog-details section">
+          <section id="blog-details" class="blog-details section" >
             <div class="container">
               <article class="article">
                 <div class="post-img">
@@ -49,7 +52,8 @@
             </div>
           </section><!-- /Blog Details Section -->
         </div>
-          </div>
+    </div>
+
   </main>
 
  {% endblock %}
