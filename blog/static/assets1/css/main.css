@@ -327,7 +327,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
+    color: white;
     padding: 18px 15px;
     font-size: 16px;
     font-family: var(--nav-font);
@@ -417,7 +417,7 @@ h6 {
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
+    color: white;
     font-size: 28px;
     line-height: 0;
     margin-right: 10px;
