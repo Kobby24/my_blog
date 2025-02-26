@@ -4,55 +4,52 @@
 
     <!-- Hero Section -->
 
-    <section id="why-us" class="why-us section">
-      <div class="text-center">
-        <h1 class="fw-bold">About Us</h1>
+<section id="why-us" class="why-us section"
+    style="margin: 0; padding: 0;
+           background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                       url('../static/assets1/img/background.png') no-repeat center center fixed;
+           background-size: contain;">
 
+    <div class="text-center" style="color: white;">
+        <h1 class="fw-bold">About Us</h1>
     </div>
 
-    <div class="row mt-4">
+    <div class="row mt-4" style="color: white;">
         <div class="col-lg-6">
             {% for leader in first_leader %}
             <h2 class="fw-bold">{{ leader.leader_title }}</h2>
-
-            <p>
-                <strong>{{ leader.leader_name }} </strong>
-            </p>
+            <p><strong>{{ leader.leader_name }} </strong></p>
         </div>
         <div class="col-lg-6">
             <img src="{{ leader.leader_image.url }}" alt="About Us" class="img-fluid rounded shadow">
         </div>
         {% endfor %}
-
     </div>
 
-    <div class="mt-5">
+    <div class="mt-5" style="color: white;">
         <h2 class="fw-bold">Leaders</h2>
-        <p> At <strong>GCOP</strong>, our mission is to provide a <em>faith-centered, community-driven, and spiritually enriching</em> experience. We are dedicated to sharing the message of Christ, fostering hope and peace, and uplifting our congregation through meaningful worship and inspiring teachings. </p>
+        <p>At <strong>GCOP</strong>, our mission is to provide a <em>faith-centered, community-driven, and spiritually enriching</em> experience. We are dedicated to sharing the message of Christ, fostering hope and peace, and uplifting our congregation through meaningful worship and inspiring teachings.</p>
     </div>
 
-      <div class="container">
-
-              <div class="row mb-2">
-                  {% for leader in remaining_leaders %}
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <h3 class="mb-0">{{ leader.leader_title }}</h3>
-            <h5><strong class="d-inline-block mb-3 text-primary-emphasis">{{ leader.leader_name }}</strong></h5>
+    <div class="container" style="color: white;">
+        <div class="row mb-2">
+            {% for leader in remaining_leaders %}
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ leader.leader_title }}</h3>
+                        <h5><strong class="d-inline-block mb-3 text-primary-emphasis">{{ leader.leader_name }}</strong></h5>
+                    </div>
+                    <div class="col-auto ">
+                        <img src="{{ leader.leader_image.url }}" alt="Placeholder: Thumbnail" width="250" height="250">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        <div class="col-auto d-none d-lg-block">
-<img src="{{ leader.leader_image.url }}" alt="Placeholder: Thumbnail" width="200" height="250">
-        </div>
-      </div>
     </div>
-                  {% endfor %}
 
-  </div>
-
-      </div>
-
-    </section><!-- /Why Us Section -->
+</section><!-- /Why Us Section -->
 
 
   </main>
