@@ -2,13 +2,13 @@
 
 {% block content %}
 <main class="main" style="background: rgba(0, 0, 0, 0.7); padding: 20px;  color: white;" xmlns="">
-    <div class="container" style="margin: 0; padding: 0;
+    <div class="container" >
+        <div class="col">
+          <!-- Blog Details Section -->
+          <section id="blog-details" class="blog-details section" style="margin: 0; padding: 0;
            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
                        url('../static/assets1/img/background.png') no-repeat center center fixed;
            background-size: contain;">
-        <div class="col">
-          <!-- Blog Details Section -->
-          <section id="blog-details" class="blog-details section" >
             <div class="container">
               <article class="article">
                 <div class="post-img">
@@ -31,7 +31,12 @@
                 <div class="container text-center">
                   <div class="row align-items-start">
                     <div class="col">
-                  <h2 class="title" style="font-size: 28px; font-weight: bold; color: #222; font-family: Arial, sans-serif; text-align: center; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 3px solid #007BFF; padding-bottom: 5px; display: inline-block;">{{ post.blog_title }}</h2>
+                        <h2 class="title" style="font-size: 28px; font-weight: bold; color: #fff; font-family: Arial, sans-serif;
+          text-align: center; margin-bottom: 15px; text-transform: uppercase;
+          letter-spacing: 2px; border-bottom: 3px solid #007BFF;
+          padding-bottom: 5px; display: inline-block;">
+    {{ post.blog_title }}
+</h2>
 
                     </div>
 
@@ -44,9 +49,13 @@
                 </div>
                 <div class="content">
 
-                  <p style="font-size: 18px; line-height: 1.6; color: #333; font-family: Arial, sans-serif; text-align: justify; padding: 10px; background-color: #f9f9f9; border-left: 4px solid #007BFF; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
-                    {{ post.blog_body }}
-                    </p>
+                  <p style="font-size: 18px; line-height: 1.6; color: #fff; font-family: Arial, sans-serif;
+                            text-align: justify; padding: 10px; background-color: rgba(0, 0, 0, 0.8);
+                            border-left: 4px solid #007BFF; border-radius: 5px;
+                            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
+                      {{ post.blog_body }}
+                  </p>
+
                   </div>
               </article>
             </div>
