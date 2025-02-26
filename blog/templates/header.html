@@ -32,41 +32,28 @@
 <body style="margin: 0; padding: 0; background: url( '../static/assets1/img/background.jpg' ) no-repeat center center fixed; background-size: cover; opacity: 0.95; ">
 <header id="header" class="header " style="background: rgba(0, 0, 0, 0.7); padding: 20px;  color: white;">
 
-<!--    <div class="topbar d-flex align-items-center">-->
-<!--&lt;!&ndash;      <div class="container d-flex justify-content-center justify-content-md-between">&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="contact-info d-flex align-items-center">&ndash;&gt;-->
-<!--&lt;!&ndash;          <i class="bi bi-envelope d-flex align-items-center text-white" ><a href="mailto:contact@example.com" style="color:white;">kobbygilbert233@gmail.com</a></i>&ndash;&gt;-->
-<!--&lt;!&ndash;          <i class="bi bi-phone d-flex align-items-center ms-4 text-white"><span style="color:white;">+233 592 857 226</span></i>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="social-links d-none d-md-flex align-items-center">&ndash;&gt;-->
-<!--&lt;!&ndash;    <a href="https://www.youtube.com/@godschurchofpeaceinternati4179" class="text-white fs-4 me-3">&ndash;&gt;-->
-<!--&lt;!&ndash;        <i class="bi bi-youtube"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;    </a>&ndash;&gt;-->
-<!--&lt;!&ndash;    <a href="https://www.instagram.com/peace.ghana.54/" class="text-white fs-4 me-3">&ndash;&gt;-->
-<!--&lt;!&ndash;        <i class="bi bi-instagram"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;    </a>&ndash;&gt;-->
-<!--&lt;!&ndash;    <a href="https://www.facebook.com/GCOPMEDIA" class="text-white fs-4 me-3">&ndash;&gt;-->
-<!--&lt;!&ndash;        <i class="bi bi-facebook"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;    </a>&ndash;&gt;-->
-<!--&lt;!&ndash;    <a href="https://www.tiktok.com/@peaceghana" class="text-white fs-4">&ndash;&gt;-->
-<!--&lt;!&ndash;        <i class="bi bi-tiktok"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;    </a>&ndash;&gt;-->
-
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-<!--    </div>&lt;!&ndash; End Top Bar &ndash;&gt;-->
-
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-<!--           <img src="../static/assets1/img/logo.png" alt="">-->
+
           <h1 class="sitename" style="">GCOP's Blog</h1>
+        <style>
+  /* Default (Desktop) */
+  .navmenu a {
+    color: white;
+  }
 
+  /* Mobile Styles (Screen width ≤ 768px) */
+  @media (max-width: 768px) {
+    .navmenu a {
+      color: black !important;  /* Change text color for mobile */
+    }
+  }
+</style>
 
-        <nav id="navmenu" class="navmenu">
+        <nav id="navmenu" class="navmenu" >
           <ul>
-            <li><a href="{% url 'home' %}" class="{% if request.path == '/' %} active {% endif %} " style="color:white;">Home</a></li>
+            <li><a href="{% url 'home' %}" class="{% if request.path == '/' %} active {% endif %} " style="color:white; ">Home</a></li>
             <li><a href="{% url 'about' %}"  class="{% if request.path == '/about/' %} active {% endif %}" style="color:white;">About</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
