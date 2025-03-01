@@ -6,7 +6,9 @@ from .utils import *
 
 def home(request):
     post = get_all_post()
+
     event = get_events()
+
     return render(request, 'index.html', {"data": post,'event':event})
 
 
