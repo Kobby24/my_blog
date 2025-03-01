@@ -7,11 +7,7 @@ urlpatterns = [
     path('article/<p_id>', views.article, name='article'),
     path('about/', views.about, name='about'),
     path('admins/', views.admins, name='admins'),
-    path('create/', views.create, name='create'),
-    # path('posts/',views.post_list,name='post_list'),
-    # path('posts/<int:post_id>/', views.post_detail, name='post_detail'),
-    # path('posts/create/', views.create_post, name='create_post'),
-    # path('posts/<int:post_id>/update/', views.update_post, name='update_post'),
-    # path('posts/<int:post_id>/delete/', views.delete_post, name='delete_post'),
+    path('like/<int:post_id>/', views.like_post, name='like_post')
+
 ]
 
