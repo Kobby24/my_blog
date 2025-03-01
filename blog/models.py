@@ -7,6 +7,7 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 from cloudinary.models import CloudinaryField
+import uuid
 
 
 class AuthGroup(models.Model):
@@ -124,6 +125,8 @@ class BlogPost(models.Model):
     blog_body = models.CharField(null=False,blank=False,max_length=1500)
     blog_media = CloudinaryField('image',blank=True,null=True)
     video_url = models.CharField(blank=True,null=True,max_length=1500)
+    like_count = models.IntegerField(default=0)
+
 
 
     class Meta:
@@ -154,3 +157,14 @@ class Leaders(models.Model):
     class Meta:
         managed = True
         db_table = 'leaders'
+
+
+class Like(models.Model):
+    anonymous_user_id = models.CharField(max_length=36)  # Stores UUID as a string
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE,null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("anonymous_user_id", "post")  # Prevent duplicate likes
+
+
