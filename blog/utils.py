@@ -7,7 +7,7 @@ def get_post(post_id):
     return post
 
 def get_all_post():
-    posts = BlogPost.objects.all()
+    posts = BlogPost.objects.all().order_by("-blog_id")
     blog_posts = []
 
     for post in posts:
