@@ -63,49 +63,151 @@
                        url('../static/assets1/img/background.png') no-repeat center center fixed;
            background-size: contain;">
       <div class="container">
-        <div class="row gy-4">
-        {% for i in data%}
-          {% if i.video_url %}
-          <div class="{% if check %} col-12 {% else %} col-lg-4 {% endif %} card"
-     data-aos="fade-up"
-     data-aos-delay="100"
-     style="min-height: 300px; overflow: hidden; border-radius: 10px; position: relative; display: flex; flex-direction: column;">
+       <div class="row gy-4">
+    {% for i in data %}
+        {% if i.video_url %}
+            <div class="{% if check %} col-12 {% else %} col-lg-4 {% endif %} card mb-5"
+                 style="min-height: 300px; overflow: hidden; border-radius: 10px; position: relative; display: flex; flex-direction: column;">
 
-  <!-- YouTube Video Embed -->
-  <iframe
-    src="https://www.youtube.com/embed/{{ i.video_url }}?autoplay=0&mute=1&controls=0&loop=1&playlist={{ i.video_url }}"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-    class="img-fluid rounded shadow-lg img-hover-effect mt-4 card-img-top"
-    style="width: 100%; height: 200px; object-fit: cover; cursor: pointer;">
-  </iframe>
+                <!-- YouTube Video Embed -->
+                <iframe src="https://www.youtube.com/embed/{{ i.video_url }}?autoplay=0&mute=1&controls=0&loop=1&playlist={{ i.video_url }}"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        class="img-fluid rounded shadow-lg img-hover-effect mt-4 card-img-top"
+                        style="width: 100%; height: 200px; object-fit: cover; cursor: pointer;">
+                </iframe>
 
-  <!-- Card Body with Link -->
-  <div class="card-body text-center"
-       style="flex: 1; display: flex; flex-direction: column; justify-content: center; background: rgba(0, 0, 0, 0.5); padding: 20px;">
-    <h4 style="color:white;" class="card-text">
-      {{ i.blog_title }}
-    </h4>
-  </div>
+                <!-- Card Body -->
+                <div class="card-body text-center"
+                     style="flex: 1; display: flex; flex-direction: column; justify-content: center; background: rgba(0, 0, 0, 0.5); padding: 20px;">
+                    <h4 style="color:white;" class="card-text">
+                        {{ i.blog_title }}
+                    </h4>
+                </div>
 
-  <!-- Stretched Link for Entire Card -->
-  <a href="{% url 'article' p_id=i.blog_id %}" class="stretched-link"></a>
+                <!-- Like Button (Fixed Bottom Center) -->
+                <div class="like-container">
+                    <button class="like-btn" data-id="{{ i.blog_id }}">
+                        <i class="fa fa-heart"></i> <span class="like-count">{{ i.like_count }}</span>
+                    </button>
+                </div>
+
+                <!-- Stretched Link for Entire Card -->
+                <a href="{% url 'article' p_id=i.blog_id %}" class="stretched-link"></a>
+            </div>
+        {% else %}
+            <div class="{% if check %} col-12 {% else %} col-lg-4 {% endif %} mb-5"
+                 style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ i.blog_media.url }}'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 300px; position: relative;">
+
+                <div class="card-item text-center" style="position: relative; padding: 20px;">
+                    <h4 style="color:white;"><a href="{% url 'article' p_id=i.blog_id %}" class="stretched-link"></a>{{ i.blog_title }}</h4>
+                    <p style="color:white;">{{ i.blog_subtitle }}</p>
+                </div>
+
+                <!-- Like Button (Fixed Bottom Center) -->
+                <div class="like-container">
+                    <button class="like-btn" data-id="{{ i.blog_id }}">
+                        <i class="fa fa-heart"></i> <span class="like-count">{{ i.like_count }}</span>
+                    </button>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 </div>
-          {% else %}
-          <div class="{% if check %} col-12 {% else %} col-lg-4 {% endif %}"
-     data-aos="fade-up"
-     data-aos-delay="100"
-     style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ i.blog_media.url }}'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 300px;">
-  <div class="card-item">
-    <h4 style="color:white;"><a href="{% url 'article' p_id=i.blog_id %}" class="stretched-link"></a>{{ i.blog_title }}</h4>
-    <p style="color:white;">{{ i.blog_subtitle }}</p>
-  </div>
+
+<!-- Custom CSS for More Space -->
+<style>
+    .like-container {
+        position: absolute;
+        bottom: -50px; /* Reduced negative space to make it more visible */
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 16px;
+        border-radius: 50px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .like-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .like-btn:hover {
+        color: red;
+    }
+
+    .fa-heart {
+        transition: color 0.3s;
+    }
+
+    /* Extra space below cards */
+    .row .card {
+        margin-bottom: 60px !important; /* More space between cards */
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".like-btn").forEach((button) => {
+            button.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevent accidental clicks on stretched link
+
+                const postId = this.dataset.id;
+                const likeCountElement = this.querySelector(".like-count");
+                const heartIcon = this.querySelector("i");
+                const csrftoken = getCSRFToken();  // Retrieve CSRF token
+
+                fetch(`/like/${postId}/`, {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": csrftoken,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ post_id: postId })
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.status === "liked") {
+                        heartIcon.classList.add("text-danger"); // Change heart color when liked
+                    } else {
+                        heartIcon.classList.remove("text-danger"); // Reset color when unliked
+                    }
+                    likeCountElement.textContent = data.like_count; // Update like count
+                })
+                .catch((error) => console.error("Error:", error));
+            });
+        });
+    });
+
+    // Function to get CSRF token from cookies
+    function getCSRFToken() {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith("csrftoken=")) {
+                    cookieValue = cookie.substring("csrftoken=".length, cookie.length);
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
 
 
-</div>
-          {% endif %}
-          {% endfor %}
-      </div>
+
+
      </div>
     </section>
     </div></main>
@@ -129,6 +231,8 @@
     });
   });
 </script>
+
+
 {% endblock %}
 
 </body>
