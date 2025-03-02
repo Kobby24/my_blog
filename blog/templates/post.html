@@ -46,6 +46,15 @@
                     <h3 style="font-size: 22px; font-weight: bold; color: #007BFF; font-family: Arial, sans-serif; text-align: center; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">{{ post.blog_subtitle }}</h3>
                   </div>
                   <div><br></div>
+                    <div class="like-share-container text-center mt-3" style="z-index: 2; display: flex; justify-content: center; gap: 10px;">
+        <!-- Like Button -->
+
+
+        <!-- Share Button -->
+        <button class="share-btn" style="border: none; background: none; cursor: pointer; color:white;">
+    <i class="fa fa-share"></i> Share
+</button>
+    </div>
                 </div>
                 <div class="content">
 
@@ -62,6 +71,65 @@
           </section><!-- /Blog Details Section -->
         </div>
     </div>
+    <script>
+    document.querySelectorAll(".share-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+        // Get the current page's URL
+        let fullUrl = window.location.href;
+
+        if (navigator.share) {
+            // If Web Share API is supported (Mobile browsers)
+            navigator.share({
+                title: "Check out this post!",
+                url: fullUrl
+            }).catch((err) => {
+                console.error("Error sharing:", err);
+                showTooltip("Failed to share. Please try again.");
+            });
+        } else if (navigator.clipboard) {
+            // Fallback: Copy to clipboard
+            navigator.clipboard.writeText(fullUrl).then(() => {
+                showTooltip("Post link copied to clipboard!");
+            }).catch((err) => {
+                console.error("Error copying link:", err);
+                showTooltip("Failed to copy link. Please try again.");
+            });
+        } else {
+            // Fallback for browsers that don't support clipboard API
+            showTooltip("Your browser does not support sharing or copying. Please manually copy the link: " + fullUrl);
+        }
+    });
+});
+
+// Function to show a tooltip
+function showTooltip(message) {
+    // Create a tooltip element
+    const tooltip = document.createElement("div");
+    tooltip.textContent = message;
+    tooltip.style.position = "fixed";
+    tooltip.style.bottom = "20px";
+    tooltip.style.left = "50%";
+    tooltip.style.transform = "translateX(-50%)";
+    tooltip.style.backgroundColor = "black";
+    tooltip.style.color = "white";
+    tooltip.style.padding = "10px 20px";
+    tooltip.style.borderRadius = "5px";
+    tooltip.style.zIndex = "1000";
+    tooltip.style.fontSize = "14px";
+    tooltip.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+    tooltip.style.transition = "opacity 0.3s ease";
+
+    // Append the tooltip to the body
+    document.body.appendChild(tooltip);
+
+    // Remove the tooltip after 3 seconds
+    setTimeout(() => {
+        tooltip.style.opacity = "0";
+        setTimeout(() => {
+            document.body.removeChild(tooltip);
+        }, 300);
+    }, 3000);
+}</script>
 
   </main>
 
