@@ -24,6 +24,7 @@ def home(request):
 
 
 def article(request, p_id):
+    print(p_id)
 
     post = get_post(post_id=p_id)
 
