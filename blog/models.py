@@ -183,7 +183,7 @@ class BlogPostAdmin(admin.ModelAdmin):
 
         if request.user.is_superuser:
             return qs
-        return qs.filter(created_by=request.user)
+        return qs.filter(created_by_id=request.user)
 
     def save_model(self, request, obj, form, change):
 
