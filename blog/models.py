@@ -6,8 +6,14 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.contrib.auth.models import User
+from django.contrib import admin
+
 from cloudinary.models import CloudinaryField
 import uuid
+
+
+
 
 
 class AuthGroup(models.Model):
@@ -125,6 +131,7 @@ class BlogPost(models.Model):
     blog_body = models.CharField(null=False,blank=False,max_length=1500)
     blog_media = CloudinaryField('image',blank=True,null=True)
     video_url = models.CharField(blank=True,null=True,max_length=1500)
+    created_by = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     like_count = models.IntegerField(default=0)
 
 
@@ -167,4 +174,23 @@ class Like(models.Model):
     class Meta:
         unique_together = ("anonymous_user_id", "post")  # Prevent duplicate likes
 
+
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('blog_title', 'created_by')
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(created_by=request.user)
+
+    def save_model(self, request, obj, form, change):
+
+        if not obj.created_by:
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
+
+
+admin.site.register(BlogPost, BlogPostAdmin)
 

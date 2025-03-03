@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Equalizer</title>
+    <style>
+        .slider {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Equalizer</h1>
+    <audio id="audio" controls>
+        <source src="your-audio-file.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="equalizer">
+        <label>60Hz</label>
+        <input type="range" min="-30" max="30" value="0" class="slider" id="eq60">
+        <label>170Hz</label>
+        <input type="range" min="-30" max="30" value="0" class="slider" id="eq170">
+        <label>350Hz</label>
+        <input type="range" min="-30" max="30" value="0" class="slider" id="eq350">
+        <label>1000Hz</label>
+        <input type="range" min="-30" max="30" value="0" class="slider" id="eq1000">
+        <label>3500Hz</label>
+        <input type="range" min="-30" max="30" value="0" class="slider" id="eq3500">
+        <label>10000Hz</label>
+        <input type="range" min="-30" max="30" value="0" class="slider" id="eq10000">
+    </div>
+    <script src="equalizer.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@ from .models import *
 
 
 admin.site.register(AuthUser)
-admin.site.register(BlogPost)
+# admin.site.register(BlogPost)
 admin.site.register(AuthGroup)
 admin.site.register(AuthGroupPermissions)
 admin.site.register(AuthPermission)
