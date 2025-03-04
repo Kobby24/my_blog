@@ -54,5 +54,5 @@ def get_founder():
 
 
 def about_background():
-    image = AboutPageBackground.objects.all().lastest('image_id')
+    image = AboutPageBackground.objects.all().latest('image_id')
     return image
