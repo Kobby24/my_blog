@@ -209,3 +209,11 @@ class EventsAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 admin.site.register(Events,EventsAdmin)
 
+class AboutPageBackground(models.Model):
+    background_image = CloudinaryField('image',blank=True,null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'aboutBackground'
+
+
