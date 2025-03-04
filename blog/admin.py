@@ -16,6 +16,6 @@ admin.site.register(DjangoAdminLog)
 admin.site.register(DjangoContentType)
 admin.site.register(DjangoMigrations)
 admin.site.register(DjangoSession)
-admin.site.register(Events)
+
 admin.site.register(Leaders)
 admin.site.register(Like)

@@ -150,6 +150,7 @@ class Events(models.Model):
     event_date = models.CharField(null=True,blank=True,max_length=250)
     event_image = CloudinaryField('image',blank=True,null=True)
     event_video = CloudinaryField(resource_type='video',blank=True,null=True)
+    created_by = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
 
     class Mate:
         managed = True
@@ -193,4 +194,18 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(BlogPost, BlogPostAdmin)
+
+class EventsAdmin(admin.ModelAdmin):
+    list_display = ('event_title','created_by')
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(created_by_id=request.user)
+    def save_model(self, request, obj, form, change):
+        if not obj.created_by:
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
+admin.site.register(Events,EventsAdmin)
 
