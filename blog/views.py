@@ -24,10 +24,7 @@ def home(request):
 
 
 def article(request, p_id):
-    print(p_id)
-
     post = get_post(post_id=p_id)
-
     context = {'id': p_id, 'post': post}
     return render(request, 'post.html', context)
 
@@ -35,11 +32,12 @@ def article(request, p_id):
 def about(request):
     founder = get_founder()
     leaders = get_leaders()
+
     context = {
         "first_leader": founder if founder else None,  # Handle empty QuerySet
         "remaining_leaders": leaders if leaders else None,
+
     }
-    print(context)
     return render(request, 'about.html',context)
 
 
