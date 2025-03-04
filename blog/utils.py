@@ -37,7 +37,6 @@ import re
 
 def youtube(url):
     url=str(url)
-    """Extracts the src URL using regex."""
     match = re.search(r'src="([^"]+)"', url)
     m = match.group(1) if match else None
     if m:
@@ -54,4 +53,6 @@ def get_founder():
     return leaders
 
 
-
+def about_background():
+    image = AboutPageBackground.obejcts.all().lastest('image_id')
+    return image
