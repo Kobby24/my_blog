@@ -32,10 +32,11 @@ def article(request, p_id):
 def about(request):
     founder = get_founder()
     leaders = get_leaders()
-
+    background = about_background()
     context = {
         "first_leader": founder if founder else None,  # Handle empty QuerySet
         "remaining_leaders": leaders if leaders else None,
+        "background": background if background else None
 
     }
     return render(request, 'about.html',context)
