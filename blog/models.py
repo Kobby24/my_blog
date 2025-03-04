@@ -210,6 +210,7 @@ class EventsAdmin(admin.ModelAdmin):
 admin.site.register(Events,EventsAdmin)
 
 class AboutPageBackground(models.Model):
+    image_id = models.AutoField(primary_key=True)
     background_image = CloudinaryField('image',blank=True,null=True)
 
     class Meta:
