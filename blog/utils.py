@@ -1,5 +1,5 @@
 from .models import *
-from django.core.mail import send_mail
+from django.db.models import Q
 def get_post(post_id):
     post = BlogPost.objects.get(blog_id=post_id)
     post.video_url= youtube(post.video_url)
@@ -44,13 +44,27 @@ def youtube(url):
     else:
         return m
 
-def get_leaders():
-    leaders = Leaders.objects.exclude(leader_title='Founder')
-    return leaders
+def get_elders():
+    elders = Leaders.objects.filter(leader_title='Elder')
+    return elders
 
 def get_founder():
     leaders = Leaders.objects.filter(leader_title='Founder')
     return leaders
+def get_clergy():
+    clergy = Leaders.objects.filter(leader_title='Pastor')
+    return clergy
+
+def get_deacons():
+    deacons = Leaders.objects.filter(Q(leader_title__icontains="deacon") | Q(leader_title__icontains="deaconess"))
+    return deacons
+def get_overseers():
+    overseers = Leaders.objects.filter(leader_title='Overseer')
+    return overseers
+
+def get_workers():
+    workers = Leaders.objects.filter(leader_title='Worker')
+    return workers
 
 
 def about_background():
