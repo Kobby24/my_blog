@@ -19,4 +19,4 @@ admin.site.register(DjangoSession)
 
 admin.site.register(Leaders)
 admin.site.register(Like)
-admin.site.register(AboutPageBackground)
+# admin.site.register(AboutPageBackground)
