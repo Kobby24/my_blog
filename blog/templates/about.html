@@ -7,8 +7,9 @@
 <section id="why-us" class="why-us section"
     style="margin: 0; padding: 0;
            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-                       url({% if background|first %} {{ background|first }}{% else %}'../static/assets1/img/background.jpg' {% endif %}) no-repeat center center fixed;
-           background-size: cover;">
+                      url('/static/assets1/img/background.jpg')
+                      no-repeat center center fixed; background-size: cover;">
+>
 
     <div class="text-center" style="color: white;">
         <h1 class="fw-bold">About Us</h1>
