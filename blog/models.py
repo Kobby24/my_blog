@@ -161,6 +161,7 @@ class Leaders(models.Model):
     leader_name = models.CharField(null=False,blank=False,max_length=400)
     leader_title = models.CharField(null=False,blank=False,max_length=400)
     leader_image = CloudinaryField('image',blank=False,null=False)
+    leader_branch = models.CharField(null=True,blank=True,max_length=250)
 
     class Meta:
         managed = True
