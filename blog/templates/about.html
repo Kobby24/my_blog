@@ -34,7 +34,8 @@
 
     <div class="container" style="color: white;">
         <div class="row mb-2">
-            {% for leader in remaining_leaders %}
+            <h3>Clergy</h3>
+            {% for leader in clergy %}
             <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
@@ -45,6 +46,68 @@
                     <div class="col-auto ">
                         <img src="{{ leader.leader_image.url }}" alt="Placeholder: Thumbnail" width="300" height="250" style="border-radius: 20px;">
                     </div>
+                    <h6 class="d-inline-block mb-3 text-emphasis"><strong>{{ leader.leader_branch }}</strong></h6>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+     <div class="container" style="color: white;">
+        <div class="row mb-2">
+            <h3>Elders</h3>
+            {% for leader in elder %}
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ leader.leader_title }}</h3>
+                        <br>
+                        <h5><strong class="d-inline-block mb-3 text-emphasis" >{{ leader.leader_name }}</strong></h5>
+                    </div>
+                    <div class="col-auto ">
+                        <img src="{{ leader.leader_image.url }}" alt="Placeholder: Thumbnail" width="300" height="250" style="border-radius: 20px;">
+                    </div>
+                    <h6 class="d-inline-block mb-3 text-emphasis"><strong>{{ leader.leader_branch }}</strong></h6>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+     <div class="container" style="color: white;">
+        <div class="row mb-2">
+            <h3>Deacons</h3>
+            {% for leader in deacons %}
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ leader.leader_title }}</h3>
+                        <br>
+                        <h5><strong class="d-inline-block mb-3 text-emphasis" >{{ leader.leader_name }}</strong></h5>
+                    </div>
+                    <div class="col-auto ">
+                        <img src="{{ leader.leader_image.url }}" alt="Placeholder: Thumbnail" width="300" height="250" style="border-radius: 20px;">
+                    </div>
+                    <h6 class="d-inline-block mb-3 text-emphasis"><strong>{{ leader.leader_branch }}</strong></h6>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+     <div class="container" style="color: white;">
+        <div class="row mb-2">
+            <h3>Workers</h3>
+            {% for leader in worker %}
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ leader.leader_title }}</h3>
+                        <br>
+                        <h5><strong class="d-inline-block mb-3 text-emphasis" >{{ leader.leader_name }}</strong></h5>
+                    </div>
+                    <div class="col-auto ">
+                        <img src="{{ leader.leader_image.url }}" alt="Placeholder: Thumbnail" width="300" height="250" style="border-radius: 20px;">
+                    </div>
+                    <h6 class="d-inline-block mb-3 text-emphasis"><strong>{{ leader.leader_branch }}</strong></h6>
                 </div>
             </div>
             {% endfor %}
