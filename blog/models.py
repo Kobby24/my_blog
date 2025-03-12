@@ -8,11 +8,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
+from ckeditor.fields import RichTextField
 
 from cloudinary.models import CloudinaryField
 import uuid
-
-
 
 
 
@@ -128,7 +127,7 @@ class BlogPost(models.Model):
     blog_id = models.AutoField(primary_key=True,)
     blog_title = models.CharField(null=False,blank=False,max_length=250)
     blog_subtitle = models.CharField(null=True,blank=True,max_length=450)
-    blog_body = models.CharField(null=False,blank=False,max_length=1500)
+    blog_body = RichTextField()
     blog_media = CloudinaryField('image',blank=True,null=True)
     video_url = models.CharField(blank=True,null=True,max_length=1500)
     created_by = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
