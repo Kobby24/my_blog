@@ -58,12 +58,12 @@
                 </div>
                 <div class="content">
 
-                  <p style="font-size: 18px; line-height: 1.6; color: #fff; font-family: Arial, sans-serif;
+                  <div style="font-size: 18px; line-height: 1.6; color: #fff; font-family: Arial, sans-serif;
                             text-align: justify; padding: 10px; background-color: rgba(0, 0, 0, 0.8);
                             border-left: 4px solid #007BFF; border-radius: 5px;
                             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);">
-                      {{ post.blog_body }}
-                  </p>
+                      {{ post.blog_body|safe }}
+                  </div>
 
                   </div>
               </article>
