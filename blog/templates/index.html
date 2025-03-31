@@ -109,6 +109,10 @@
                 style="border: none; background: none; cursor: pointer; color:white;">
             <i class="fa fa-share"></i> Share
         </button>
+        <button class="comment-btn" data-url="{% url 'article' p_id=i.blog_id %}"
+                style="border: none; background: none; cursor: pointer; color:white;">
+             <i class="fa fa-comment"></i> Comment
+        </button>
     </div>
 </div>
 
@@ -132,6 +136,11 @@
         <button class="share-btn" data-url="{% url 'article' p_id=i.blog_id %}"
                 style="border: none; background: none; cursor: pointer; color:white;">
             <i class="fa fa-share"></i> Share
+        </button>
+                     <button class="comment-btn" data-url="{% url 'article' p_id=i.blog_id %}"
+                style="border: none; background: none; cursor: pointer; color:white;">
+             <i class="fa fa-comment"></i> Comment
+
         </button>
     </div>
             </div>
