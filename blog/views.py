@@ -1,6 +1,8 @@
 import uuid
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate, login
+
 from django.http import HttpResponse
 from .forms import Login, CreatePost
 from .utils import *
@@ -72,7 +74,26 @@ def get_anonymous_user_id(request):
         anonymous_user_id = str(uuid.uuid4())
 
     return anonymous_user_id
+def login_(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
+        # Try to get the 'next' parameter from either GET or POST
+        next_url = request.GET.get('next') or request.POST.get('next')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect(next_url) if next_url else redirect('user_form')  # Redirect to next URL or default
+        else:
+            return HttpResponse(status=403)  # Or render with an error message
+
+    next_url = request.GET.get('next', '')  # Preserve 'next' parameter for redirection
+    return render(request, 'registration/login.html', {'next': next_url})
+
+def signup(request):
+    return render(request,"signin.html")
 
 
 @csrf_exempt
