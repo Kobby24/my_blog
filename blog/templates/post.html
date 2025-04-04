@@ -46,15 +46,7 @@
                     <h3 style="font-size: 22px; font-weight: bold; color: #007BFF; font-family: Arial, sans-serif; text-align: center; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">{{ post.blog_subtitle }}</h3>
                   </div>
                   <div><br></div>
-                    <div class="like-share-container text-center mt-3" style="z-index: 2; display: flex; justify-content: center; gap: 10px;">
-        <!-- Like Button -->
 
-
-        <!-- Share Button -->
-        <button class="share-btn" style="border: none; background: none; cursor: pointer; color:white;">
-    <i class="fa fa-share"></i> Share
-</button>
-    </div>
                 </div>
                 <div class="content">
 
@@ -66,6 +58,19 @@
                   </div>
 
                   </div>
+                  <div class="like-share-container text-center mt-3" style="z-index: 2; display: flex; justify-content: center; gap: 10px;">
+        <!-- Like Button -->
+
+
+        <!-- Share Button -->
+        <button class="share-btn" style="border: none; background: none; cursor: pointer; color:white;">
+    <i class="fa fa-share"></i> Share
+</button>
+                        <button class="comment-btn" data-url="#"
+                style="border: none; background: none; cursor: pointer; color:white;">
+             <i class="fa fa-comment"></i> Comment
+        </button>
+    </div>
               </article>
             </div> <strong style="color:white;"> Article by {{ post.created_by }}  </strong>
           </section><!-- /Blog Details Section -->
