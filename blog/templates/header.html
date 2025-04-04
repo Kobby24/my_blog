@@ -108,14 +108,16 @@
                             <i class="bi bi-google-play ms-3"></i>
                         </a>
                     </span>
-
-                    <div class="d-flex justify-content-center">
-                        <iframe src="https://stream.zeno.fm/4vkingghydivv" frameborder="0" scrolling="no" height="70px"></iframe>
-                    </div>
+                    <audio id="radio-player" controls autoplay></audio>
+<!--                    <div class="d-flex justify-content-center">-->
+<!--                        <iframe src="https://stream.zeno.fm/4vkingghydivv" frameborder="0" scrolling="no" height="70px"></iframe>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <!-- Copyright Section -->
     <div class="container copyright text-center mt-4">
@@ -214,6 +216,33 @@
         }
         return cookieValue;
     }
+  document.addEventListener("DOMContentLoaded", function() {
+    const audio = document.getElementById('radio-player');
+    const streamURL = "https://stream.zeno.fm/4vkingghydivv";
+
+    // Restore playback position and state
+    const savedTime = localStorage.getItem("audioTime");
+    const wasPlaying = localStorage.getItem("isPlaying") === "true";
+
+    audio.src = streamURL;
+
+    audio.addEventListener("loadedmetadata", function() {
+      if (savedTime !== null) {
+        audio.currentTime = parseFloat(savedTime);
+      }
+      if (wasPlaying) {
+        audio.play().catch(() => {
+          // Handle autoplay restrictions
+        });
+      }
+    });
+
+    // Save playback position and state before unload
+    window.addEventListener("beforeunload", function() {
+      localStorage.setItem("audioTime", audio.currentTime);
+      localStorage.setItem("isPlaying", !audio.paused);
+    });
+  });
 </script>
           <script>
               document.querySelectorAll(".share-btn").forEach((btn) => {
