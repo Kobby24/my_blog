@@ -120,9 +120,18 @@
 
 
     <!-- Copyright Section -->
-    <div class="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Kobby24</strong> <span>All Rights Reserved</span></p>
-    </div>
+    <div class="container text-center mt-4">
+  <p class="mb-0">
+    © <span id="current-year"></span>
+    <span>Copyright</span>
+    <strong class="px-1 sitename">
+      <a href="https://x.com/kobbygilbert1" target="_blank" style="text-decoration: none; color: inherit;">
+        Kobby24
+      </a>
+    </strong>
+    <span>All Rights Reserved.</span>
+  </p>
+</div>
 </footer>
 <style>
     
@@ -169,6 +178,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
     document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".like-btn").forEach((button) => {
             button.addEventListener("click", function (event) {
